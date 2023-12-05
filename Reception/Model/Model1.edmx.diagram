@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="06203f8bc5f24ab3bb9c5c995e96ee57" Name="Diagram1">
+        <EntityTypeShape EntityType="ReceptionModel.CheckIn" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReceptionModel.ClassRoom" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReceptionModel.GroupVisitors" Width="1.5" PointX="7.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReceptionModel.ListDopService" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReceptionModel.ListService" Width="1.5" PointX="7.5" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReceptionModel.Payment" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReceptionModel.Role" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReceptionModel.Room" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReceptionModel.Service" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReceptionModel.Status" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReceptionModel.Visitor" Width="1.5" PointX="5.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReceptionModel.Worker" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <AssociationConnector Association="ReceptionModel.FK__CheckIn__Payment__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="ReceptionModel.FK__CheckIn__RoomID__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="ReceptionModel.FK__CheckIn__StatusI__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="ReceptionModel.FK__CheckIn__WorkerI__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="ReceptionModel.FK__GroupVisi__Check__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="ReceptionModel.FK__ListDopSe__Check__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="ReceptionModel.FK__ListServi__Check__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="ReceptionModel.FK__Room__ClassRoomI__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="ReceptionModel.FK__GroupVisi__Visit__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="ReceptionModel.FK__ListDopSe__Servi__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="ReceptionModel.FK__ListServi__Servi__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="ReceptionModel.FK__Worker__RoleID__5812160E" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ReceptionModelContainer" CdmEntityContainer="ReseptionEntities">
+    <EntitySetMapping Name="CheckIn">
+      <EntityTypeMapping TypeName="ReceptionModel.CheckIn">
+        <MappingFragment StoreEntitySet="CheckIn">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DateCheckIn" ColumnName="DateCheckIn" />
+          <ScalarProperty Name="DateCheckOut" ColumnName="DateCheckOut" />
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+          <ScalarProperty Name="BusinessTrip" ColumnName="BusinessTrip" />
+          <ScalarProperty Name="Sum" ColumnName="Sum" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="WorkerID" ColumnName="WorkerID" />
+          <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClassRoom">
+      <EntityTypeMapping TypeName="ReceptionModel.ClassRoom">
+        <MappingFragment StoreEntitySet="ClassRoom">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupVisitors">
+      <EntityTypeMapping TypeName="ReceptionModel.GroupVisitors">
+        <MappingFragment StoreEntitySet="GroupVisitors">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="VisitorID" ColumnName="VisitorID" />
+          <ScalarProperty Name="CheckInID" ColumnName="CheckInID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ListDopService">
+      <EntityTypeMapping TypeName="ReceptionModel.ListDopService">
+        <MappingFragment StoreEntitySet="ListDopService">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+          <ScalarProperty Name="CheckInID" ColumnName="CheckInID" />
+          <ScalarProperty Name="DayStart" ColumnName="DayStart" />
+          <ScalarProperty Name="DayOver" ColumnName="DayOver" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ListService">
+      <EntityTypeMapping TypeName="ReceptionModel.ListService">
+        <MappingFragment StoreEntitySet="ListService">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+          <ScalarProperty Name="CheckInID" ColumnName="CheckInID" />
+          <ScalarProperty Name="DayStart" ColumnName="DayStart" />
+          <ScalarProperty Name="DayOver" ColumnName="DayOver" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payment">
+      <EntityTypeMapping TypeName="ReceptionModel.Payment">
+        <MappingFragment StoreEntitySet="Payment">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="ReceptionModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Room">
+      <EntityTypeMapping TypeName="ReceptionModel.Room">
+        <MappingFragment StoreEntitySet="Room">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="NumberHuman" ColumnName="NumberHuman" />
+          <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+          <ScalarProperty Name="ClassRoomID" ColumnName="ClassRoomID" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Service">
+      <EntityTypeMapping TypeName="ReceptionModel.Service">
+        <MappingFragment StoreEntitySet="Service">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="ReceptionModel.Status">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Visitor">
+      <EntityTypeMapping TypeName="ReceptionModel.Visitor">
+        <MappingFragment StoreEntitySet="Visitor">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+          <ScalarProperty Name="Bith" ColumnName="Bith" />
+          <ScalarProperty Name="NumberPasport" ColumnName="NumberPasport" />
+          <ScalarProperty Name="SeriesPassport" ColumnName="SeriesPassport" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Worker">
+      <EntityTypeMapping TypeName="ReceptionModel.Worker">
+        <MappingFragment StoreEntitySet="Worker">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+          <ScalarProperty Name="Bith" ColumnName="Bith" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

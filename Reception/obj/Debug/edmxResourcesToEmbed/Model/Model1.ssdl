@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище ReceptionModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CheckIn">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateCheckIn" Type="datetime" Nullable="false" />
+    <Property Name="DateCheckOut" Type="datetime" Nullable="false" />
+    <Property Name="RoomID" Type="int" Nullable="false" />
+    <Property Name="BusinessTrip" Type="bit" Nullable="false" />
+    <Property Name="Sum" Type="money" Nullable="false" />
+    <Property Name="StatusID" Type="int" Nullable="false" />
+    <Property Name="WorkerID" Type="int" Nullable="false" />
+    <Property Name="PaymentID" Type="int" />
+  </EntityType>
+  <EntityType Name="ClassRoom">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GroupVisitors">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VisitorID" Type="int" Nullable="false" />
+    <Property Name="CheckInID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ListDopService">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ServiceID" Type="int" Nullable="false" />
+    <Property Name="CheckInID" Type="int" Nullable="false" />
+    <Property Name="DayStart" Type="datetime" Nullable="false" />
+    <Property Name="DayOver" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ListService">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ServiceID" Type="int" Nullable="false" />
+    <Property Name="CheckInID" Type="int" Nullable="false" />
+    <Property Name="DayStart" Type="datetime" Nullable="false" />
+    <Property Name="DayOver" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="NumberHuman" Type="int" Nullable="false" />
+    <Property Name="RoomNumber" Type="int" Nullable="false" />
+    <Property Name="ClassRoomID" Type="int" Nullable="false" />
+    <Property Name="Cost" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Cost" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Visitor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Patronymic" Type="nvarchar" MaxLength="30" />
+    <Property Name="Bith" Type="datetime" Nullable="false" />
+    <Property Name="NumberPasport" Type="nvarchar" MaxLength="6" Nullable="false" />
+    <Property Name="SeriesPassport" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="11" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Worker">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Patronymic" Type="nvarchar" MaxLength="30" />
+    <Property Name="Bith" Type="datetime" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="RoleID" Type="int" />
+    <Property Name="Login" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__CheckIn__Payment__398D8EEE">
+    <End Role="Payment" Type="Self.Payment" Multiplicity="0..1" />
+    <End Role="CheckIn" Type="Self.CheckIn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CheckIn">
+        <PropertyRef Name="PaymentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CheckIn__RoomID__4E88ABD4">
+    <End Role="Room" Type="Self.Room" Multiplicity="1" />
+    <End Role="CheckIn" Type="Self.CheckIn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Room">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CheckIn">
+        <PropertyRef Name="RoomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CheckIn__StatusI__4F7CD00D">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="CheckIn" Type="Self.CheckIn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CheckIn">
+        <PropertyRef Name="StatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CheckIn__WorkerI__5070F446">
+    <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
+    <End Role="CheckIn" Type="Self.CheckIn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CheckIn">
+        <PropertyRef Name="WorkerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GroupVisi__Check__5165187F">
+    <End Role="CheckIn" Type="Self.CheckIn" Multiplicity="1" />
+    <End Role="GroupVisitors" Type="Self.GroupVisitors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CheckIn">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GroupVisitors">
+        <PropertyRef Name="CheckInID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GroupVisi__Visit__52593CB8">
+    <End Role="Visitor" Type="Self.Visitor" Multiplicity="1" />
+    <End Role="GroupVisitors" Type="Self.GroupVisitors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Visitor">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GroupVisitors">
+        <PropertyRef Name="VisitorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ListDopSe__Check__534D60F1">
+    <End Role="CheckIn" Type="Self.CheckIn" Multiplicity="1" />
+    <End Role="ListDopService" Type="Self.ListDopService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CheckIn">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ListDopService">
+        <PropertyRef Name="CheckInID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ListDopSe__Servi__5441852A">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="ListDopService" Type="Self.ListDopService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ListDopService">
+        <PropertyRef Name="ServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ListServi__Check__5535A963">
+    <End Role="CheckIn" Type="Self.CheckIn" Multiplicity="1" />
+    <End Role="ListService" Type="Self.ListService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CheckIn">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ListService">
+        <PropertyRef Name="CheckInID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ListServi__Servi__5629CD9C">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="ListService" Type="Self.ListService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ListService">
+        <PropertyRef Name="ServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Room__ClassRoomI__571DF1D5">
+    <End Role="ClassRoom" Type="Self.ClassRoom" Multiplicity="1" />
+    <End Role="Room" Type="Self.Room" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClassRoom">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Room">
+        <PropertyRef Name="ClassRoomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Worker__RoleID__5812160E">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Worker">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище ReceptionModelContainer">
+    <EntitySet Name="CheckIn" EntityType="Self.CheckIn" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClassRoom" EntityType="Self.ClassRoom" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GroupVisitors" EntityType="Self.GroupVisitors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ListDopService" EntityType="Self.ListDopService" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ListService" EntityType="Self.ListService" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Visitor" EntityType="Self.Visitor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Worker" EntityType="Self.Worker" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__CheckIn__Payment__398D8EEE" Association="Self.FK__CheckIn__Payment__398D8EEE">
+      <End Role="Payment" EntitySet="Payment" />
+      <End Role="CheckIn" EntitySet="CheckIn" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CheckIn__RoomID__4E88ABD4" Association="Self.FK__CheckIn__RoomID__4E88ABD4">
+      <End Role="Room" EntitySet="Room" />
+      <End Role="CheckIn" EntitySet="CheckIn" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CheckIn__StatusI__4F7CD00D" Association="Self.FK__CheckIn__StatusI__4F7CD00D">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="CheckIn" EntitySet="CheckIn" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CheckIn__WorkerI__5070F446" Association="Self.FK__CheckIn__WorkerI__5070F446">
+      <End Role="Worker" EntitySet="Worker" />
+      <End Role="CheckIn" EntitySet="CheckIn" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GroupVisi__Check__5165187F" Association="Self.FK__GroupVisi__Check__5165187F">
+      <End Role="CheckIn" EntitySet="CheckIn" />
+      <End Role="GroupVisitors" EntitySet="GroupVisitors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GroupVisi__Visit__52593CB8" Association="Self.FK__GroupVisi__Visit__52593CB8">
+      <End Role="Visitor" EntitySet="Visitor" />
+      <End Role="GroupVisitors" EntitySet="GroupVisitors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ListDopSe__Check__534D60F1" Association="Self.FK__ListDopSe__Check__534D60F1">
+      <End Role="CheckIn" EntitySet="CheckIn" />
+      <End Role="ListDopService" EntitySet="ListDopService" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ListDopSe__Servi__5441852A" Association="Self.FK__ListDopSe__Servi__5441852A">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="ListDopService" EntitySet="ListDopService" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ListServi__Check__5535A963" Association="Self.FK__ListServi__Check__5535A963">
+      <End Role="CheckIn" EntitySet="CheckIn" />
+      <End Role="ListService" EntitySet="ListService" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ListServi__Servi__5629CD9C" Association="Self.FK__ListServi__Servi__5629CD9C">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="ListService" EntitySet="ListService" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Room__ClassRoomI__571DF1D5" Association="Self.FK__Room__ClassRoomI__571DF1D5">
+      <End Role="ClassRoom" EntitySet="ClassRoom" />
+      <End Role="Room" EntitySet="Room" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Worker__RoleID__5812160E" Association="Self.FK__Worker__RoleID__5812160E">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Worker" EntitySet="Worker" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

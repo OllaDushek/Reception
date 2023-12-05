@@ -1,0 +1,43 @@
+﻿<Page x:Class="Reception.Pages.RoomForWorkerPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Reception.Pages"
+      mc:Ignorable="d" Background="White" Loaded="Page_Loaded"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RoomForWorkerPage">
+
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
+            <TextBlock Text="Номера" FontSize="20" Foreground="#3B2B00" Margin="2"/>
+            <Border BorderThickness="0.5" BorderBrush="#3B2B00" Width="730"/>
+            <ListBox Margin="5,60,5,5" Height="300" HorizontalAlignment="Left" Width="400" Name="ListRooms" BorderThickness="0">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextNorm}">Фото: </TextBlock>
+                                <Image Source="{Binding Photo}" Width="250" Height="150" HorizontalAlignment="Left" Margin="5" RenderOptions.BitmapScalingMode="HighQuality"/>
+                            </StackPanel>
+                            <TextBlock Style="{StaticResource TextNorm}" Text="Номер для "><Run Text="{Binding NumberHuman}"/> человек(а)</TextBlock>
+                            <TextBlock Style="{StaticResource TextNorm}" Text="{Binding ClassRoom}"/>
+                            <TextBlock Style="{StaticResource TextNorm}" Text="{Binding Cost}"><Run Text=" р/н"/></TextBlock>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextNorm}" Text="{Binding StatusRoom}"/>
+                                <Button Name="UpdateButton" Style="{StaticResource ButtonAddCustomer}" Click="UpdateButton_Click">
+                                    <Image Source="\Images\plusNextPage.png"/>
+                                </Button>
+                                <Button Name="DeleteButton" Style="{StaticResource ButtonAddCustomer}" Click="DeleteButton_Click">
+                                    <Image Source="\Images\minusicon.png"/>
+                                </Button>
+                            </StackPanel>
+                            <Border BorderThickness="0.5" BorderBrush="#3B2B00" Width="250"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Button x:Name="AddButton" Content="Добавить" Margin="10,5,5,5" HorizontalAlignment="Left" Style="{StaticResource ButtonNextPage}" Click="AddButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

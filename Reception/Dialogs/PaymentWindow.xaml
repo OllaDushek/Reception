@@ -1,0 +1,20 @@
+﻿<Window x:Class="Reception.Dialogs.PaymentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Reception.Dialogs"
+        mc:Ignorable="d"
+        Title="" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel Orientation="Vertical" Width="410" Height="200" Margin="10">
+            <TextBlock Text="Выберите вид оплаты:" Style="{StaticResource TextNorm}" Margin="5"/>
+            <RadioButton Name="CardBut" Content="Карта" Foreground="#3B2B00" FontSize="16" Margin="5"/>
+            <RadioButton Name="RasrBut" Content="Наличные" Foreground="#3B2B00" FontSize="16" Margin="5"/>
+            <WrapPanel HorizontalAlignment="Right" Margin="0,80,0,0">
+                <Button IsDefault="True" Click="Button_Click" MinWidth="60" Style="{StaticResource ButtonNextPage}" Margin="0,0,10,0">Оплатить</Button>
+                <Button IsCancel="True" Style="{StaticResource ButtonNextPage}" MinWidth="60">Отмена</Button>
+            </WrapPanel>
+        </StackPanel>
+    </Grid>
+</Window>

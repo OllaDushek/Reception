@@ -1,0 +1,46 @@
+﻿<Page x:Class="Reception.Pages.CheckOutPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Reception.Pages"
+      mc:Ignorable="d" Loaded="Page_Loaded"
+      d:DesignHeight="450" d:DesignWidth="800" Background="White"
+      Title="CheckOutPage">
+
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
+            <TextBlock Text="Выселение" FontSize="20" Foreground="#3B2B00" Margin="2"/>
+            <Border BorderThickness="0.5" BorderBrush="#3B2B00" Width="730"/>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0,50,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource TextNorm}">Выселить посетителя(ей) из номера:</TextBlock>
+                    <ComboBox Name="IDRoomBox" Width="50" Height="20" Margin="5" Foreground="#3B2B00" BorderThickness="0.5" SelectionChanged="IDRoomBox_SelectionChanged"/>
+                </StackPanel>
+                <TextBlock Style="{StaticResource TextNorm}">Список доп. услуг: <Run Name="foundnotfound"/></TextBlock>
+            </StackPanel>
+            <ListBox Margin="5" Height="120" Width="400" HorizontalAlignment="Left" Name="ListService" BorderThickness="0">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                <TextBlock Style="{StaticResource TextNorm}" Text="{Binding Name}"/>
+                                <TextBlock Style="{StaticResource TextNorm}" Text="{Binding Cost}"><Run Text="р"/></TextBlock>
+                                <TextBlock Style="{StaticResource TextBlockDateList}"><Run Text="{Binding DayStart, StringFormat=\{0:dd.MM.yy\}}"/> - <Run Text="{Binding DayOver, StringFormat=\{0:dd.MM.yy\}}"/></TextBlock>
+                            </StackPanel>
+                            <Border HorizontalAlignment="Left" BorderThickness="0.5" BorderBrush="#3B2B00" Width="360"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,30">
+                <TextBlock Text="Сумма:" Style="{StaticResource TextNorm}"/>
+                <TextBlock Style="{StaticResource TextNorm}" Name="SumBox"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button x:Name="CheckOutButton" Style="{StaticResource ButtonCheckIn}" Content="Выселить" Click="CheckOutButton_Click"/>
+                <Button x:Name="CheckButton" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource ButtonCheckIn}" Content="Вывести чек" Click="CheckButton_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
